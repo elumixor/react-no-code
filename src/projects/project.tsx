@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { ContextMenuProvider } from "../context-menu";
-import { StyleContext } from "../style-context";
+import { Resources } from "../resources/resources";
 
 export interface IProject {
     name: string;
@@ -9,8 +9,7 @@ export interface IProject {
 }
 
 export function Project({ name, location }: IProject) {
-    const style = useContext(StyleContext);
-    const colors = style.colors;
+    const { colors, images } = useContext(Resources);
 
     const styles = StyleSheet.create({
         projectContainer: { margin: 15, alignItems: "center" },
@@ -22,7 +21,7 @@ export function Project({ name, location }: IProject) {
         {
             label: `Rename "${name}"`,
             action: () => console.log(`Renaming "${name}"`),
-            icon: style.images.icons.block,
+            icon: images.icons.block,
         },
     ];
 

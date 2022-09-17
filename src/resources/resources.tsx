@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { createContext } from "react";
+import { sound } from "./sounds";
 
 const colors = {
     white: "#fff",
@@ -15,13 +17,18 @@ const colors = {
 
 const images = {
     icons: {
-        block: require("../assets/icons/block.png"),
+        block: require("../../assets/icons/block.png"),
     },
 };
 
-export const styles = {
+const sounds = {
+    click: sound(require("../../assets/sounds/click.mp3")),
+};
+
+const resources = {
     colors,
     images,
+    sounds,
     texts: {
         section: {
             fontSize: 20,
@@ -33,6 +40,4 @@ export const styles = {
     },
 } as const;
 
-export type Styles = typeof styles;
-
-export const StyleContext = createContext(styles);
+export const Resources = createContext(resources);

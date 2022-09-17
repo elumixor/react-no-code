@@ -4,7 +4,7 @@ import { View } from "react-native";
 import "reflect-metadata";
 import { ContextMenu } from "./context-menu";
 import { Projects } from "./projects";
-import { StyleContext } from "./style-context";
+import { Resources } from "./resources/resources";
 import "./utils";
 
 const projects = [
@@ -14,15 +14,15 @@ const projects = [
 ];
 
 export function MainComponent() {
-    const style = useContext(StyleContext);
+    const style = useContext(Resources);
 
     return (
         <View>
-            <StyleContext.Provider value={style}>
+            <Resources.Provider value={style}>
                 <ContextMenu>
                     <Projects projects={projects} />
                 </ContextMenu>
-            </StyleContext.Provider>
+            </Resources.Provider>
 
             <StatusBar style="auto" />
         </View>

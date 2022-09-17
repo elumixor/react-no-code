@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { ContextMenuProvider } from "../context-menu";
-import { Resources } from "../resources/resources";
+import { NavContext } from "../navigation";
+import { Resources } from "../resources";
 
 export interface IProject {
     name: string;
@@ -10,6 +11,7 @@ export interface IProject {
 
 export function Project({ name, location }: IProject) {
     const { colors, images } = useContext(Resources);
+    const navContext = useContext(NavContext);
 
     const styles = StyleSheet.create({
         projectContainer: { margin: 15, alignItems: "center" },
@@ -26,7 +28,7 @@ export function Project({ name, location }: IProject) {
     ];
 
     return (
-        <ContextMenuProvider items={contextMenuItems}>
+        <ContextMenuProvider items={contextMenuItems} onPress={() => navContext.goto(`projects/${name}`)}>
             <View key={name} style={styles.projectContainer}>
                 <Text style={styles.projectName}>{name}</Text>
                 <Text style={styles.projectPath}>{location}</Text>

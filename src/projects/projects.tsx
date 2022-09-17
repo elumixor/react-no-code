@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { ContextMenuProvider } from "../context-menu";
-import { Resources } from "../resources/resources";
+import { Resources } from "../resources";
 import { IProject, Project } from "./project";
 
 export function Projects({ projects }: { projects: IProject[] }) {

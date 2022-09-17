@@ -9,3 +9,4 @@ export * from "./use-multiple";
 export * from "./clamp";
 export * from "./rect-distance";
 export * from "./delay";
+export * from "./zip";
